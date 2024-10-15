@@ -1,13 +1,20 @@
 import { SafeAreaView, StyleSheet, Text, View, ScrollView, ActivityIndicator } from 'react-native';
-import StorieIcon from './src/components/Stories';
+import StorieIcon from '../components/Stories';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Publication } from '../components/Publication';
 
 interface Pokemon {
   name: string;
   sprites: {
     front_default: string; 
+    front_shiny: string; 
   };
+  types: {
+    type: {
+      name: string;
+    };
+  }[];
 }
 
 export default function App() {
@@ -21,7 +28,7 @@ export default function App() {
 
   const getPokemons = () => {
     const endpoints = [];
-    for (let i = 1; i < 20; i++) { 
+    for (let i = 1; i < 15; i++) { 
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
     }
 
@@ -55,8 +62,21 @@ export default function App() {
           <StorieIcon
             key={index}
             imageUrl={pokemon.sprites.front_default} 
-            size={75}                             
+            size={75} 
+            pokemonName={pokemon.name}                            
           />
+        ))}
+      </ScrollView>
+
+      <ScrollView style={styles.home__publications}>
+        {pokemons.map((pokemon, index) => (
+           <Publication
+           key={index}
+           imagePublication={pokemon.sprites.front_shiny}
+           typePokemon={pokemon.types[0].type.name} 
+           pokemonName={pokemon.name}  
+           pokemonProfileImg={pokemon.sprites.front_default}        
+           />
         ))}
       </ScrollView>
     </SafeAreaView>
@@ -67,6 +87,7 @@ const styles = StyleSheet.create({
   home: {
     flex: 1,
     backgroundColor: '#000',
+    gap: 10,
   },
   home__header: {
     position: 'absolute',
@@ -87,6 +108,10 @@ const styles = StyleSheet.create({
   },
   home__stories: {
     marginTop: 115,
+  },
+  home__publications: {
+    paddingTop: 20,
+    marginTop: 20,  
   },
   story: {
  
