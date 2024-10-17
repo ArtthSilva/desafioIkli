@@ -1,6 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// Função para obter os favoritos
 export const getFavorites = async (): Promise<number[]> => {
     try {
         const favorites = await AsyncStorage.getItem('favorites');
@@ -11,7 +10,6 @@ export const getFavorites = async (): Promise<number[]> => {
     }
 };
 
-// Função para verificar se um Pokémon é favorito
 export const isFavorite = async (pokemonId: number): Promise<boolean> => {
     try {
         const favorites = await getFavorites();
@@ -22,16 +20,13 @@ export const isFavorite = async (pokemonId: number): Promise<boolean> => {
     }
 };
 
-// Função para alternar o estado de favorito (adicionar/remover)
 export const toggleFavorite = async (pokemonId: number, currentStatus: boolean): Promise<void> => {
     try {
         let favorites = await getFavorites();
 
         if (currentStatus) {
-            // Se o Pokémon é favorito, removê-lo
             favorites = favorites.filter(id => id !== pokemonId);
         } else {
-            // Se não é favorito, adicioná-lo
             favorites.push(pokemonId);
         }
 

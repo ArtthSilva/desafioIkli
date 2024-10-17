@@ -13,7 +13,7 @@
 <h2>📖 Descrição</h2>
 
 <p>
-    -	Este projeto é uma Pokédex com um layout inspirado no Instagram, onde você pode explorar fotos de diversos Pokémons, visualizar o perfil detalhado de cada um, realizar buscas específicas e filtrar Pokémons por tipo. Além disso, é possível marcar seus Pokémons favoritos e a navegação conta com uma funcionalidade de scroll infinito, carregando novos Pokémons automaticamente conforme você rola a página (No feed).
+    -	Este projeto é uma Pokédex com um layout inspirado no Instagram, onde você pode explorar fotos de diversos Pokémons, visualizar o perfil detalhado de cada um, realizar buscas específicas e filtrar Pokémons por tipo. Além disso, é possível marcar seus Pokémons favoritos e a navegação conta com uma funcionalidade de scroll infinito, carregando novos Pokémons automaticamente conforme você rola a página (Na tela de busca).
 </p>
 
 
