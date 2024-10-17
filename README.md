@@ -31,6 +31,7 @@
 <h2>🛠️ Tecnologias Estudadas</h2>
 
 - `Typescript`
+- `Expo`
 - `Axios`
 - `AsyncStorage` 
 - `React navigation`
