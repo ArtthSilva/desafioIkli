@@ -6,6 +6,14 @@ export const styles = StyleSheet.create({
         backgroundColor: '#000',
         gap: 10,
     },
+    feedLoading: {
+        flex: 1,
+        backgroundColor: '#000',
+        gap: 10,
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems: 'center'
+    },
     feed__header: {
         height: 55,
         width: '100%',

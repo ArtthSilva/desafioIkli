@@ -9,7 +9,6 @@ import { propsStack } from "../../../routes/types";
 import { pokemonApi } from "../../../services/PokemonApi";
 import { SearchBar } from "../components/searchBar";
 
-
 export default function Feed() {
     const [pokemons, setPokemons] = useState<IPokemonWithColor[]>([]);
     const [loading, setLoading] = useState(true);
@@ -56,7 +55,11 @@ export default function Feed() {
     };
 
     if (loading && page === 1) {
-        return <ActivityIndicator size="large" color="#0000ff" />;
+        return (
+            <SafeAreaView style={styles.feedLoading}>
+                <ActivityIndicator size="large" color="#0000ff" />
+            </SafeAreaView>
+        );
     }
 
     if (error) {

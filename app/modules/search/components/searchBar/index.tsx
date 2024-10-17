@@ -1,16 +1,9 @@
-// components/SearchBar.tsx
 import React from "react";
 import { View, TextInput, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { styles } from "./styles";
 
-interface SearchBarProps {
-  searchQuery: string;
-  handleSearch: (query: string) => void;
-  openFilterModal: () => void;
-}
-
-export const SearchBar: React.FC<SearchBarProps> = ({ searchQuery, handleSearch, openFilterModal }) => {
+export const SearchBar: React.FC<ISearchBarProps> = ({ searchQuery, handleSearch, openFilterModal }) => {
   return (
     <View style={styles.searchBar}>
       <TextInput
