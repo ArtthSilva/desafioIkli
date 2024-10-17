@@ -101,7 +101,6 @@ export default function Feed() {
                 keyExtractor={(item) => item.id.toString()}  
                 contentContainerStyle={styles.grid}
                 renderItem={({ item }) => (
-                    console.log(item.id + " " + item.name),
                     <TouchableOpacity style={[styles.gridItem, { backgroundColor: item.backgroundColor }]}
                         onPress={() => navigation.navigate("Profile", { id: item.id })}
                     >
