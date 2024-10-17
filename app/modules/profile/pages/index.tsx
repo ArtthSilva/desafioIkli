@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Button, FlatList, Image } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Button, FlatList, Image, ActivityIndicator } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { propsStack, ProfileRouteProp } from "../../../routes/types";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -20,13 +20,13 @@ export default function Profile() {
     const [error, setError] = useState<string | null>(null);
     const pokemonId = params.params.id;
     const [loading, setLoading] = useState(true);
-    const [favorite, setFavorite] = useState(false);   
+    const [favorite, setFavorite] = useState(false);
     const backgroundColorImage = getRandomColor();
 
     useEffect(() => {
         const fetchProfileData = async () => {
             try {
-                const data = await pokemonApi.getPokemonById(pokemonId);  
+                const data = await pokemonApi.getPokemonById(pokemonId);
                 setProfileData(data);
             } catch (error) {
                 console.error('Erro ao buscar dados do perfil:', error);
@@ -35,31 +35,31 @@ export default function Profile() {
                 setLoading(false);
             }
         };
-        checkFavoriteStatus();   
+        checkFavoriteStatus();
         fetchProfileData();
     }, [pokemonId]);
 
     const checkFavoriteStatus = async () => {
         const isFav = await isFavorite(pokemonId);
-        setFavorite(isFav);   
+        setFavorite(isFav);
     };
 
     const handleToggleFavorite = async () => {
-        await toggleFavorite(pokemonId, favorite);  
-        setFavorite(!favorite);  
+        await toggleFavorite(pokemonId, favorite);
+        setFavorite(!favorite);
     };
 
     if (loading) {
         return (
-            <SafeAreaView style={styles.profile}>
-                <Text style={styles.profile__loadingText}>Loading...</Text>
+            <SafeAreaView style={styles.profileLoading}>
+                <ActivityIndicator size="large" color="#0000ff" />
             </SafeAreaView>
         );
     }
 
     if (error) {
         return (
-            <SafeAreaView style={styles.profile}>
+            <SafeAreaView style={styles.profileLoading}>
                 <Text style={styles.profile__loadingText}>{error}</Text>
             </SafeAreaView>
         );
@@ -74,7 +74,7 @@ export default function Profile() {
         profileData.sprites.front_shiny,
         profileData.sprites.back_shiny,
 
-    ].filter(Boolean);  
+    ].filter(Boolean);
 
     return (
         <SafeAreaView style={styles.profile}>
@@ -110,12 +110,12 @@ export default function Profile() {
                 </View>
             </View>
             <View style={styles.profile__favoriteButtonContainer}>
-                <TouchableOpacity 
-                onPress={handleToggleFavorite}
-                style={[
-                    styles.profile__favoriteButton, 
-                    { backgroundColor: favorite ? 'red' : '#1FA1FF' }
-                ]}>
+                <TouchableOpacity
+                    onPress={handleToggleFavorite}
+                    style={[
+                        styles.profile__favoriteButton,
+                        { backgroundColor: favorite ? 'red' : '#1FA1FF' }
+                    ]}>
                     <Text style={styles.profile__favoriteButtonText}>{favorite ? 'Unfavorite' : 'Favorite'}</Text>
                 </TouchableOpacity>
             </View>

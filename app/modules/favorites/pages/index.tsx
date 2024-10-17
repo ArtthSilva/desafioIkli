@@ -55,19 +55,31 @@ export default function Favorites() {
     };
 
     if (loading) {
-        return <ActivityIndicator size="large" color="#0000ff" />;
+        return (
+            <SafeAreaView style={styles.unFavorite}>
+                <ActivityIndicator size="large" color="#0000ff" />
+            </SafeAreaView>
+        );
     }
 
     if (error) {
-        return <Text>Error: {error}</Text>;
+        return(
+            <SafeAreaView style={styles.unFavorite}>
+                <Text style={{color: 'white'}}>{error}</Text>
+            </SafeAreaView>
+        );
     }
 
     if (pokemons.length === 0) {
-        return <Text>Nenhum Pokémon favorito encontrado.</Text>;
+        return (
+            <SafeAreaView style={styles.unFavorite}>
+                <Text style={{color: 'white'}}>No favorite Pokémon found.</Text>
+            </SafeAreaView>
+        );
     }
 
     return (
-        <SafeAreaView style={styles.feed}>
+        <SafeAreaView style={styles.favorites}>
             <FlatList
                 data={pokemons}
                 numColumns={3}

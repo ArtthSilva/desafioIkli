@@ -5,6 +5,14 @@ export const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#000',
       gap: 10,
+    }, 
+    homeLoading: {
+      flex: 1,
+      backgroundColor: '#000',
+      gap: 10,
+      justifyContent: 'center', 
+      alignContent: 'center', 
+      alignItems: 'center'
     },
     home__header: {
       position: 'absolute',

@@ -5,6 +5,13 @@ export const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#000",
     },
+    profileLoading: {
+        flex: 1,
+        backgroundColor: "#000",
+        justifyContent: "center",
+        alignContent: "center",
+        alignItems: "center",
+    },
     profile__header: {
         flexDirection: 'row',
         justifyContent: 'space-between',

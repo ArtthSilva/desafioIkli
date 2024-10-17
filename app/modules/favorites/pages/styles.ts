@@ -1,12 +1,19 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    feed: {
+    favorites: {
         flex: 1,
         backgroundColor: '#000',
         gap: 10,
     },
- 
+    unFavorite: {
+        flex: 1,
+        backgroundColor: '#000',
+        gap: 10,
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems: 'center'
+    },
     grid: {
         paddingTop: 0,
         padding: 5,
@@ -25,7 +32,7 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
     },
     flatList: {
-        marginTop: 70,  
+        marginTop: 70,
     },
 
 });
