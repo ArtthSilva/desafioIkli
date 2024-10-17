@@ -10,6 +10,8 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { IPokemon } from "../../../interfaces/pokemon.interface";
 import { pokemonApi } from "../../../services/PokemonApi";
 import { styles } from "./styles";
+import { getRandomColor } from "../../../utils/randomColor";
+import { isFavorite, toggleFavorite } from "../../../utils/favoritePokemon";
 
 export default function Profile() {
     const params = useRoute<ProfileRouteProp>();
@@ -18,6 +20,8 @@ export default function Profile() {
     const [error, setError] = useState<string | null>(null);
     const pokemonId = params.params.id;
     const [loading, setLoading] = useState(true);
+    const [favorite, setFavorite] = useState(false);   
+    const backgroundColorImage = getRandomColor();
 
     useEffect(() => {
         const fetchProfileData = async () => {
@@ -31,9 +35,19 @@ export default function Profile() {
                 setLoading(false);
             }
         };
-
+        checkFavoriteStatus();   
         fetchProfileData();
     }, [pokemonId]);
+
+    const checkFavoriteStatus = async () => {
+        const isFav = await isFavorite(pokemonId);
+        setFavorite(isFav);   
+    };
+
+    const handleToggleFavorite = async () => {
+        await toggleFavorite(pokemonId, favorite);  
+        setFavorite(!favorite);  
+    };
 
     if (loading) {
         return (
@@ -96,8 +110,13 @@ export default function Profile() {
                 </View>
             </View>
             <View style={styles.profile__favoriteButtonContainer}>
-                <TouchableOpacity style={styles.profile__favoriteButton}>
-                    <Text style={styles.profile__favoriteButtonText}>Favorite</Text>
+                <TouchableOpacity 
+                onPress={handleToggleFavorite}
+                style={[
+                    styles.profile__favoriteButton, 
+                    { backgroundColor: favorite ? 'red' : '#1FA1FF' }
+                ]}>
+                    <Text style={styles.profile__favoriteButtonText}>{favorite ? 'Unfavorite' : 'Favorite'}</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.profile__gridIconContainer}>
@@ -110,7 +129,7 @@ export default function Profile() {
                 keyExtractor={(item, index) => `${item}-${index}`}
                 renderItem={({ item }) => (
                     <View style={styles.gridItem}>
-                        <Image source={{ uri: item! }} style={styles.image} />
+                        <Image source={{ uri: item! }} style={[styles.image, { backgroundColor: backgroundColorImage }]} />
                     </View>
                 )}
                 contentContainerStyle={styles.grid}

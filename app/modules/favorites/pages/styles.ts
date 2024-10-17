@@ -6,16 +6,7 @@ export const styles = StyleSheet.create({
         backgroundColor: '#000',
         gap: 10,
     },
-    feed__header: {
-        height: 55,
-        width: '100%',
-        borderBottomWidth: 1,
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        paddingHorizontal: 20,
-        top: 40,
-    },
+ 
     grid: {
         paddingTop: 0,
         padding: 5,
@@ -34,7 +25,7 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
     },
     flatList: {
-        marginTop: 40,  
+        marginTop: 70,  
     },
 
 });

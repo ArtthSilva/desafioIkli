@@ -6,6 +6,7 @@ import Octicons from '@expo/vector-icons/Octicons';
 import Home from '../modules/home/pages';
 import Feed from '../modules/search/pages';
 import Profile from '../modules/profile/pages';
+import Favorites from '../modules/favorites/pages';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -37,6 +38,7 @@ function TabsNavigator() {
                 name="Feed"
                 component={Feed}
                 options={{
+                    tabBarShowLabel: false,
                     headerShown: false,
                     tabBarIcon: ({ color }) => (
                         <FontAwesome size={28} name="search" color={color} />
@@ -56,6 +58,14 @@ export default function Routes() {
                 options={{ headerShown: false }}
             />
             <Stack.Screen name="Profile" component={Profile} />
+            <Stack.Screen name="Favorites" component={Favorites} 
+            options={{
+                headerShown: true, 
+                headerTitle: "Favorites", 
+                headerTitleAlign: "center",
+                headerTintColor: "#fff",
+                headerStyle: { backgroundColor: "#000",  },
+                }} />
         </Stack.Navigator>
     );
 }

@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     publication: {
-        marginBottom: 30,
+        marginBottom: 70,
         paddingTop: 20,
     },
     publicationHeader: {
@@ -29,11 +29,5 @@ export const styles = StyleSheet.create({
         width: '100%',
         height: 390,
     },
-    desc: {
-        color: '#fff',
-    },
-    publicationFooter: {
-        paddingLeft: 20,
-        marginTop: 15,
-    },
+ 
 });

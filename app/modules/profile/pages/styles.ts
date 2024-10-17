@@ -46,13 +46,14 @@ export const styles = StyleSheet.create({
         padding: 12,
     },
     profile__favoriteButton: {
-        backgroundColor: 'blue',
         alignItems: 'center',
         padding: 10,
         borderRadius: 3,
     },
     profile__favoriteButtonText: {
         color: 'white',
+        fontSize: 16,
+        fontWeight: 'bold',
     },
     profile__gridIconContainer: {
         width: '100%',
@@ -77,23 +78,21 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        gap: 10,
+        gap: 1,
     },
     grid: {
-        paddingTop: 0,
-        padding: 5,
-        gap: 5,
+        paddingTop: 2,
+        width: '100%',
     },
     gridItem: {
-        width: '30%',
+        width: '33.3%',
         aspectRatio: 1,
-        marginBottom: 5,
-        borderRadius: 10,
-        marginHorizontal: 5,
+        marginBottom: 1,
+        marginHorizontal: 1,
     },
     image: {
         width: '100%',
         height: '100%',
-        borderRadius: 10,
+        borderRadius: 0,
     },
 });

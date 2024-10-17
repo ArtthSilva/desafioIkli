@@ -58,7 +58,9 @@ export default function Home() {
     <SafeAreaView style={styles.home}>
       <View style={styles.home__header}>
         <Text style={styles.home__headerText}>IkliDex</Text>
-        <MaterialIcons name="favorite-border" size={24} color="white" />
+        <TouchableOpacity onPress={() => navigation.navigate('Favorites')}>
+          <MaterialIcons name="favorite-border" size={24} color="white" />
+        </TouchableOpacity>
       </View>
       <ScrollView horizontal style={styles.home__stories}>
         {pokemons.map((pokemon) => (

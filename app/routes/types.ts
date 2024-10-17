@@ -7,6 +7,7 @@ export type propsNavigationStack = {
     id: number;
   };
   Search: undefined;
+  Favorites: undefined;
 };
 
 export type propsStack = NativeStackNavigationProp<propsNavigationStack>;
