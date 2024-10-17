@@ -1,9 +1,10 @@
 import React from "react";
 import { Modal, View, Text, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
+import { TypePokemons } from "../enum/typePokemons";
 
 export const FilterTypeModal: React.FC<IFilterModalProps> = ({ modalVisible, setModalVisible, handleTypeSelect }) => {
-    const pokemonTypes = ["fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy"];
+    const pokemonTypes = Object.values(TypePokemons);
 
     return (
         <Modal

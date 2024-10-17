@@ -45,7 +45,15 @@ export default function Feed() {
                 ...pokemon,
                 backgroundColor: getRandomColor(),
             }));
-            setPokemons((prev) => [...prev, ...coloredPokemons]);
+            
+            setPokemons((prev) => {
+                const uniquePokemons = [...prev, ...coloredPokemons].filter(
+                    (pokemon, index, self) =>
+                        index === self.findIndex((p) => p.id === pokemon.id)
+                );
+                return uniquePokemons;
+            });
+            
             setLoading(false);
         } catch (error) {
             setError("Erro ao carregar Pokémons");
@@ -93,6 +101,7 @@ export default function Feed() {
                 keyExtractor={(item) => item.id.toString()}  
                 contentContainerStyle={styles.grid}
                 renderItem={({ item }) => (
+                    console.log(item.id + " " + item.name),
                     <TouchableOpacity style={[styles.gridItem, { backgroundColor: item.backgroundColor }]}
                         onPress={() => navigation.navigate("Profile", { id: item.id })}
                     >
