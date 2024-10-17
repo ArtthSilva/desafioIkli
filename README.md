@@ -19,6 +19,11 @@
 
 <h2>📱 Preview</h2>
 <img src="https://github.com/user-attachments/assets/1886761c-35c5-47eb-86dc-186b2af5a687" width="170px" /> 
+<img src="https://github.com/user-attachments/assets/ecc58823-83ac-41ef-9fd1-96006a1e0e56" width="170px" /> 
+<img src="https://github.com/user-attachments/assets/947776b1-0b75-4c09-9c5d-9dc721a445f0" width="170px" /> 
+<img src="https://github.com/user-attachments/assets/85787e66-f932-4479-b257-6b11fd790d5f" width="170px" /> 
+<img src="https://github.com/user-attachments/assets/300f4e35-d6ab-4262-acc9-0aebc692ca0e" width="170px" /> 
+
 
 ---
 
